@@ -721,4 +721,70 @@ main {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+/* Copyright Footer */
+.copyright-footer {
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(155, 107, 158, 0.1), rgba(216, 191, 216, 0.1));
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.copyright-text {
+    color: var(--secondary-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.contact-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.contact-link i {
+    font-size: 1.1rem;
+}
+
+.contact-link:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .contact-links {
+        justify-content: center;
+    }
 } 

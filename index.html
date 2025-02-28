@@ -30,17 +30,22 @@
     <main>
         <section id="home" class="active-section">
             <div class="container welcome-container">
-                <h1>Hi! I'm Aaditi Singhal</h1>
-                <p class="subtitle">Welcome to my narrative journey</p>
-                <a href="#essay" class="cta-button">Read My Story</a>
+                <h1 class="animate-title">Hi! I'm Aaditi Singhal</h1>
+                <p class="subtitle animate-subtitle">Welcome to my narrative journey</p>
+                <div class="button-group">
+                    <a href="#essay" class="cta-button animate-button">Read My Story</a>
+                    <a href="https://devpost.com/software/aa-x395vj?_gl=1*14ski08*_gcl_au*MzI4Njk5NDI3LjE3NDAyNzkyNTY.*_ga*MjA4NDQyNDE2OC4xNzQwMjc5MjU4*_ga_0YHJK3Y10M*MTc0MDczMDgwNi43LjEuMTc0MDczMDgzOS4wLjAuMA.." target="_blank" class="devpost-button animate-button">
+                        <i class="fas fa-code"></i> View AAROLIC
+                    </a>
+                </div>
             </div>
         </section>
 
         <section id="essay" class="essay-section">
             <div class="essay-container">
                 <div class="essay-header">
-                    <h2 class="essay-title">Multimodal Literal Narrative</h2>
-                    <div class="essay-meta">
+                    <h2 class="essay-title animate-on-scroll">Multimodal Literal Narrative</h2>
+                    <div class="essay-meta animate-on-scroll">
                         <span class="author">By Aaditi Singhal</span>
                         <span class="divider">|</span>
                         <span class="date">Hacklytics 2025</span>
@@ -81,8 +86,8 @@
 
         <section id="gallery" class="gallery-section">
             <div class="gallery-container">
-                <h2 class="gallery-title">Visual Journey</h2>
-                <div class="gallery-grid">
+                <h2 class="gallery-title animate-on-scroll">Visual Journey</h2>
+                <div class="gallery-grid animate-on-scroll">
                     <div class="gallery-item">
                         <div class="image-wrapper">
                             <img src="image1.png" alt="Visual Story 1" loading="lazy">
@@ -131,8 +136,9 @@
             threshold: 0.1
         });
 
-        document.querySelectorAll('.essay-text').forEach((essay) => {
-            observer.observe(essay);
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll, .essay-text').forEach((element) => {
+            observer.observe(element);
         });
 
         // Smooth scrolling for navigation links
@@ -142,6 +148,28 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // Update active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>

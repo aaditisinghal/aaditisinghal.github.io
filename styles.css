@@ -6,6 +6,8 @@
     --highlight-color: #fff;
     --story-bg: rgba(255, 255, 255, 0.98);
     --story-text: #2d2d2d;
+    --devpost-color: #003E54;
+    --animation-duration: 0.8s;
 }
 
 * {
@@ -110,10 +112,24 @@ main {
     margin-bottom: 2rem;
 }
 
-.cta-button {
-    display: inline-block;
+.button-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.animate-button {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp var(--animation-duration) ease-out 0.6s forwards;
+}
+
+.cta-button, .devpost-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 1rem 2rem;
-    background: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 30px;
@@ -122,9 +138,118 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.cta-button:hover {
+.cta-button {
+    background: var(--primary-color);
+}
+
+.devpost-button {
+    background: var(--devpost-color);
+}
+
+.cta-button:hover, .devpost-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:hover {
+    background: #8a5c8d;
+}
+
+.devpost-button:hover {
+    background: #002b3b;
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* New Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Enhanced Gallery Animations */
+.gallery-item {
+    animation: fadeIn 0.5s ease-out backwards;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.2s; }
+.gallery-item:nth-child(2) { animation-delay: 0.4s; }
+.gallery-item:nth-child(3) { animation-delay: 0.6s; }
+.gallery-item:nth-child(4) { animation-delay: 0.8s; }
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+    .welcome-container {
+        padding: 2rem;
+    }
+
+    .welcome-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+    }
+
+    .essay-container {
+        margin: 0;
+    }
+
+    .essay-title {
+        font-size: 2rem;
+    }
+
+    .essay-box {
+        padding: 2rem;
+    }
+
+    .essay-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .cta-button, .devpost-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
 }
 
 /* Essay Section */
@@ -302,38 +427,6 @@ main {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .welcome-container {
-        padding: 2rem;
-    }
-
-    .welcome-container h1 {
-        font-size: 2.5rem;
-    }
-
-    .subtitle {
-        font-size: 1.4rem;
-    }
-
-    .essay-container {
-        margin: 0;
-    }
-
-    .essay-title {
-        font-size: 2rem;
-    }
-
-    .essay-box {
-        padding: 2rem;
-    }
-
-    .essay-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
     }
 }
 

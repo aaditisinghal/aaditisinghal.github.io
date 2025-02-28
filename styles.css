@@ -328,6 +328,54 @@ main {
     transform: translateY(0);
 }
 
+.essay-footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.aarolic-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--devpost-color), #005571);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.aarolic-button i {
+    font-size: 1.2rem;
+}
+
+.aarolic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #005571, var(--devpost-color));
+}
+
+@media (max-width: 768px) {
+    .essay-footer {
+        justify-content: center;
+        padding: 0 1rem;
+    }
+
+    .aarolic-button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
 /* Background Shapes */
 .background {
     position: fixed;

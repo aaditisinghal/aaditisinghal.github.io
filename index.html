@@ -3,18 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Aaditi Singhal</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <nav class="dashboard">
+        <div class="nav-content">
+            <div class="logo">AS</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#narrative"><i class="fas fa-book-open"></i> Narrative</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="background">
         <div class="shape shape1"></div>
         <div class="shape shape2"></div>
         <div class="shape shape3"></div>
         <div class="shape shape4"></div>
     </div>
-    <div class="container">
-        <h1>Hello World</h1>
-    </div>
+
+    <main>
+        <section id="home" class="active-section">
+            <div class="container welcome-container">
+                <h1>Hi! I'm Aaditi Singhal</h1>
+                <p class="subtitle">Exploring stories through multiple dimensions</p>
+                <div class="cta-buttons">
+                    <a href="#narrative" class="btn primary">View My Narrative</a>
+                    <a href="#contact" class="btn secondary">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="narrative" class="narrative-section">
+            <div class="container">
+                <h2>Multimodal Literal Narrative</h2>
+                <div class="narrative-grid">
+                    <div class="narrative-card">
+                        <div class="narrative-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h3>Written Word</h3>
+                        <p>Exploring stories through traditional writing</p>
+                    </div>
+                    <div class="narrative-card">
+                        <div class="narrative-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Visual Stories</h3>
+                        <p>Capturing moments through photography</p>
+                    </div>
+                    <div class="narrative-card">
+                        <div class="narrative-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Audio Narratives</h3>
+                        <p>Expressing through sound and music</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Aaditi Singhal | Multimodal Storyteller</p>
+    </footer>
 </body>
 </html> 

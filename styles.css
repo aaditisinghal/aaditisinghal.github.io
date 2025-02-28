@@ -5,7 +5,7 @@
     --text-color: #333;
     --highlight-color: #fff;
     --story-bg: rgba(230, 230, 250, 0.95);
-    --story-text: #000;
+    --story-text: #2d2d2d;
 }
 
 * {
@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     min-height: 100vh;
     background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 50%, #dda0dd 100%);
     position: relative;
@@ -96,6 +96,7 @@ main {
 }
 
 .welcome-container h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
@@ -117,17 +118,21 @@ main {
 }
 
 .story-container {
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
 }
 
 .story-title {
+    font-family: 'Playfair Display', serif;
     text-align: center;
     font-size: 2.5rem;
     color: var(--secondary-color);
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .story-content {
@@ -135,10 +140,13 @@ main {
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .story-box {
-    padding: 2rem;
+    padding: 3rem;
     max-height: 70vh;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -158,21 +166,21 @@ main {
     border-radius: 20px;
 }
 
-.paragraph {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--highlight-color);
-    transition: all 0.5s ease;
-    padding: 1rem;
-    border-radius: 10px;
-    background: rgba(155, 107, 158, 0.1);
+.essay {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--story-text);
+    text-align: justify;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-.paragraph.active {
-    color: var(--story-text);
-    background: rgba(155, 107, 158, 0.05);
-    transform: translateX(10px);
+.essay.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Background Shapes */
@@ -266,6 +274,17 @@ main {
     }
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .welcome-container h1 {
@@ -285,11 +304,11 @@ main {
     }
 
     .story-box {
-        padding: 1rem;
+        padding: 2rem;
     }
 
-    .paragraph {
-        font-size: 1rem;
-        padding: 0.8rem;
+    .essay {
+        font-size: 1.1rem;
+        line-height: 1.8;
     }
 } 

@@ -3,6 +3,7 @@
     --primary-color: #9b6b9e;
     --secondary-color: #583c59;
     --text-color: #333;
+    --highlight-color: #fff;
 }
 
 * {
@@ -72,7 +73,10 @@ body {
 main {
     position: relative;
     z-index: 2;
-    height: calc(100vh - 60px);
+}
+
+#home {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,6 +104,48 @@ main {
     font-size: 1.5rem;
     color: var(--secondary-color);
     opacity: 0.8;
+}
+
+/* Narrative Section */
+.narrative-section {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.narrative-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.narrative-content {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.paragraph {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    transition: all 0.5s ease;
+    padding: 1rem;
+    border-radius: 10px;
+    opacity: 0.7;
+    transform: translateY(20px);
+}
+
+.paragraph.active {
+    color: var(--highlight-color);
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Background Shapes */
@@ -201,5 +247,15 @@ main {
 
     .subtitle {
         font-size: 1.2rem;
+    }
+
+    .narrative-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .paragraph {
+        font-size: 1rem;
+        padding: 0.8rem;
     }
 } 

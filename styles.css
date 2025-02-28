@@ -4,6 +4,8 @@
     --secondary-color: #583c59;
     --text-color: #333;
     --highlight-color: #fff;
+    --story-bg: rgba(230, 230, 250, 0.95);
+    --story-text: #000;
 }
 
 * {
@@ -106,46 +108,71 @@ main {
     opacity: 0.8;
 }
 
-/* Narrative Section */
+/* Story Section */
 .narrative-section {
     min-height: 100vh;
-    padding: 2rem;
+    padding: 4rem 2rem;
     display: flex;
     justify-content: center;
 }
 
-.narrative-container {
+.story-container {
     max-width: 800px;
     width: 100%;
-    margin: 2rem auto;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    margin: 0 auto;
 }
 
-.narrative-content {
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.7);
+.story-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.story-content {
+    background: var(--story-bg);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    overflow: hidden;
+}
+
+.story-box {
+    padding: 2rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.story-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.story-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.story-box::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 20px;
 }
 
 .paragraph {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--highlight-color);
     transition: all 0.5s ease;
     padding: 1rem;
     border-radius: 10px;
-    opacity: 0.7;
-    transform: translateY(20px);
+    background: rgba(155, 107, 158, 0.1);
 }
 
 .paragraph.active {
-    color: var(--highlight-color);
-    opacity: 1;
-    transform: translateY(0);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: var(--story-text);
+    background: rgba(155, 107, 158, 0.05);
+    transform: translateX(10px);
 }
 
 /* Background Shapes */
@@ -249,8 +276,15 @@ main {
         font-size: 1.2rem;
     }
 
-    .narrative-container {
-        margin: 1rem;
+    .story-container {
+        margin: 0;
+    }
+
+    .story-title {
+        font-size: 2rem;
+    }
+
+    .story-box {
         padding: 1rem;
     }
 

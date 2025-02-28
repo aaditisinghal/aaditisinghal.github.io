@@ -26,6 +26,7 @@ body {
     background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 50%, #dda0dd 100%);
     position: relative;
     padding-top: 60px;
+    overflow-x: hidden;
 }
 
 /* Dashboard Navigation */
@@ -376,7 +377,7 @@ main {
     }
 }
 
-/* Background Shapes */
+/* Enhanced Background */
 .background {
     position: fixed;
     top: 0;
@@ -385,6 +386,8 @@ main {
     height: 100%;
     z-index: 1;
     pointer-events: none;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, rgba(230, 230, 250, 0.4) 0%, rgba(216, 191, 216, 0.2) 50%, rgba(221, 160, 221, 0.1) 100%);
 }
 
 .shape {
@@ -393,66 +396,104 @@ main {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    opacity: 0.7;
 }
 
 .shape1 {
-    width: 200px;
-    height: 200px;
-    top: -100px;
+    width: 300px;
+    height: 300px;
+    top: -150px;
     left: 20%;
-    animation: float1 15s infinite;
-    background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(230,230,250,0.3));
+    animation: float1 25s infinite;
+    background: linear-gradient(45deg, rgba(155, 107, 158, 0.3), rgba(230, 230, 250, 0.4));
+    filter: blur(2px);
 }
 
 .shape2 {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     top: 60%;
-    right: 20%;
-    animation: float2 18s infinite;
-    background: linear-gradient(45deg, rgba(221,160,221,0.2), rgba(230,230,250,0.3));
+    right: 15%;
+    animation: float2 28s infinite;
+    background: linear-gradient(45deg, rgba(221, 160, 221, 0.3), rgba(230, 230, 250, 0.4));
+    filter: blur(3px);
 }
 
 .shape3 {
-    width: 100px;
-    height: 100px;
-    bottom: 20%;
-    left: 30%;
-    animation: float3 20s infinite;
-    background: linear-gradient(45deg, rgba(216,191,216,0.2), rgba(230,230,250,0.3));
+    width: 200px;
+    height: 200px;
+    bottom: 15%;
+    left: 25%;
+    animation: float3 30s infinite;
+    background: linear-gradient(45deg, rgba(216, 191, 216, 0.3), rgba(230, 230, 250, 0.4));
+    filter: blur(2px);
 }
 
 .shape4 {
-    width: 80px;
-    height: 80px;
-    top: 30%;
-    left: 70%;
-    animation: float4 17s infinite;
-    background: linear-gradient(45deg, rgba(238,130,238,0.2), rgba(230,230,250,0.3));
+    width: 180px;
+    height: 180px;
+    top: 25%;
+    left: 65%;
+    animation: float4 27s infinite;
+    background: linear-gradient(45deg, rgba(238, 130, 238, 0.3), rgba(230, 230, 250, 0.4));
+    filter: blur(2px);
 }
 
-/* Shape Animations */
+/* Additional Shapes */
+.shape5 {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    left: 10%;
+    animation: float5 22s infinite;
+    background: linear-gradient(45deg, rgba(186, 85, 211, 0.3), rgba(230, 230, 250, 0.4));
+    filter: blur(2px);
+}
+
+.shape6 {
+    width: 120px;
+    height: 120px;
+    bottom: 30%;
+    right: 10%;
+    animation: float6 24s infinite;
+    background: linear-gradient(45deg, rgba(147, 112, 219, 0.3), rgba(230, 230, 250, 0.4));
+    filter: blur(2px);
+}
+
+/* Enhanced Shape Animations */
 @keyframes float1 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(50px, 50px) rotate(90deg); }
-    50% { transform: translate(0, 100px) rotate(180deg); }
-    75% { transform: translate(-50px, 50px) rotate(270deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    25% { transform: translate(100px, 100px) rotate(90deg) scale(1.2); }
+    50% { transform: translate(0, 200px) rotate(180deg) scale(1); }
+    75% { transform: translate(-100px, 100px) rotate(270deg) scale(0.8); }
 }
 
 @keyframes float2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-30px, -50px) scale(1.1); }
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-50px, -100px) scale(1.1) rotate(120deg); }
+    66% { transform: translate(50px, -50px) scale(0.9) rotate(240deg); }
 }
 
 @keyframes float3 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(30px, -30px) rotate(120deg); }
-    66% { transform: translate(-30px, 30px) rotate(240deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate(80px, -60px) rotate(120deg) scale(1.2); }
+    66% { transform: translate(-60px, 80px) rotate(240deg) scale(0.8); }
 }
 
 @keyframes float4 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(40px, 20px) scale(1.2); }
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(60px, 40px) scale(1.3) rotate(180deg); }
+}
+
+@keyframes float5 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(40px, -60px) scale(1.1) rotate(-180deg); }
+}
+
+@keyframes float6 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-30px, 50px) scale(1.2) rotate(120deg); }
+    66% { transform: translate(30px, -30px) scale(0.9) rotate(-120deg); }
 }
 
 /* Animations */

@@ -1,3 +1,352 @@
+/* Base styles */
+:root {
+    --primary-color: #2a2a2a;
+    --accent-color: #6c63ff;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.dashboard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* Reading Progress Bar */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 1001;
+}
+
+.reading-progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Main Content */
+main {
+    padding-top: 60px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Sections */
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Home Section */
+.welcome-container {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.animate-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.animate-subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.3s forwards;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cta-button,
+.devpost-button,
+.work-link {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.6s forwards;
+}
+
+.cta-button {
+    background: var(--accent-color);
+    color: white;
+}
+
+.devpost-button {
+    background: var(--primary-color);
+    color: white;
+}
+
+.cta-button:hover,
+.devpost-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* Works Section */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.work-card {
+    background: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.work-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+}
+
+.work-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.work-content {
+    padding: 1.5rem;
+}
+
+.work-content h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+}
+
+.work-content p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.work-link {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    animation: none;
+    opacity: 1;
+    transform: none;
+}
+
+/* Contact Section */
+.contact-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--accent-color);
+}
+
+/* Footer */
+.copyright-footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Background Shapes */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent-color);
+    opacity: 0.1;
+}
+
+.shape1 { width: 300px; height: 300px; top: 10%; left: -100px; }
+.shape2 { width: 200px; height: 200px; top: 40%; right: -50px; }
+.shape3 { width: 150px; height: 150px; bottom: 20%; left: 10%; }
+.shape4 { width: 250px; height: 250px; top: 60%; right: 20%; }
+.shape5 { width: 180px; height: 180px; bottom: -50px; left: 35%; }
+.shape6 { width: 220px; height: 220px; top: 5%; right: 35%; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .animate-title {
+        font-size: 2.5rem;
+    }
+
+    .animate-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Section Titles */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
 /* Page Navigation Buttons */
 .page-buttons {
     display: flex;

@@ -1,0 +1,19 @@
+/* Page Navigation Buttons */
+.page-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(155, 107, 158, 0.3);
+}
+
+.page-btn {
+    padding: 0.5rem 1.2rem;
+    background: var(--primary-color);
+    color: white !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(155, 107, 158, 0.2);
+} 

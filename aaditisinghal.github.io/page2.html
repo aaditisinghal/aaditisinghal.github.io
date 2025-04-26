@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetry - A Developer's Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&family=Crimson+Text:400,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="dashboard">
+        <div class="nav-content">
+            <div class="logo">KB</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#poetry">Poetry</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+
+    <div class="background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+        <div class="shape shape5"></div>
+        <div class="shape shape6"></div>
+    </div>
+
+    <main>
+        <section id="home" class="active-section">
+            <div class="container welcome-container">
+                <h1 class="animate-title">Poetry in Code</h1>
+                <p class="subtitle animate-subtitle">Where Technology Meets Verse</p>
+                <div class="button-group">
+                    <a href="#poetry" class="cta-button animate-button">Read the Poem</a>
+                    <a href="index.html" class="devpost-button animate-button">
+                        <i class="fas fa-home"></i> Back to Main
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="poetry" class="essay-section">
+            <div class="essay-container">
+                <div class="essay-header">
+                    <h2 class="essay-title animate-on-scroll">Resilience</h2>
+                    <div class="essay-meta animate-on-scroll">
+                        <span class="author">A Developer's Journey</span>
+                        <span class="divider">|</span>
+                        <span class="date">2024</span>
+                    </div>
+                </div>
+                
+                <div class="essay-content">
+                    <div class="essay-box">
+                        <div class="reading-line"></div>
+                        <div class="essay-text poetry-text">
+                            <div class="stanza">
+                                <p>Through sleepless nights, the code would flow,</p>
+                                <p>A dream of healing, bright and grand.</p>
+                                <p>Yet words I spoke, too fast, too low,</p>
+                                <p>Were lost like footprints in the sand.</p>
+                            </div>
+                            
+                            <div class="stanza">
+                                <p>A stranger's tongue, though mine to claim,</p>
+                                <p>Became a wall I could not breach.</p>
+                                <p>Each echoed "pardon" fed the flame,</p>
+                                <p>Of lessons failure came to teach.</p>
+                            </div>
+                            
+                            <div class="stanza">
+                                <p>The judges turned, their nods grew cold,</p>
+                                <p>A prize now slipping from my hand.</p>
+                                <p>Yet in my heart, I still held gold,</p>
+                                <p>The will to rise, the strength to stand.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="essay-footer">
+                    <div class="thank-you animate-on-scroll">A poem about perseverance and growth</div>
+                    <a href="index.html" class="aarolic-button animate-on-scroll">
+                        <i class="fas fa-arrow-left"></i> Return to Main Page
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <div class="gallery-container">
+                <h2 class="gallery-title animate-on-scroll">Visual Journey</h2>
+                <div class="gallery-grid animate-on-scroll">
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="image1.png" alt="Visual Story 1" loading="lazy">
+                            <div class="image-overlay">
+                                <div class="image-description">Journey Begins</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="image2.png" alt="Visual Story 2" loading="lazy">
+                            <div class="image-overlay">
+                                <div class="image-description">The Challenge</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="image3.png" alt="Visual Story 3" loading="lazy">
+                            <div class="image-overlay">
+                                <div class="image-description">Innovation</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-wrapper">
+                            <img src="image5.png" alt="Visual Story 4" loading="lazy">
+                            <div class="image-overlay">
+                                <div class="image-description">Reflection</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="copyright-footer">
+            <div class="footer-content">
+                <div class="copyright-text">
+                    2024 Krishna Bhatnagar • All rights reserved
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-link" title="Send me an email">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" class="contact-link" title="Connect on LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/kbhatnagar1506" target="_blank" class="contact-link" title="Follow on GitHub">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all elements with animate-on-scroll class and paragraphs
+        document.querySelectorAll('.animate-on-scroll, .essay-text, .essay-text p, .stanza p').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Reading progress bar
+        const progressBar = document.querySelector('.reading-progress-bar');
+        const essayContent = document.querySelector('.essay-content');
+        const readingLine = document.querySelector('.reading-line');
+
+        window.addEventListener('scroll', () => {
+            if (essayContent) {
+                const essayBox = document.querySelector('.essay-box');
+                const essayRect = essayContent.getBoundingClientRect();
+                const essayStart = essayRect.top;
+                const essayEnd = essayRect.bottom;
+                const windowHeight = window.innerHeight;
+                
+                // Calculate reading progress
+                if (essayStart <= 0 && essayEnd >= 0) {
+                    const progress = (Math.abs(essayStart) / (essayEnd - essayStart)) * 100;
+                    progressBar.style.width = `${Math.min(100, progress)}%`;
+                    
+                    // Show reading line when in essay section
+                    readingLine.style.opacity = '1';
+                    
+                    // Position reading line relative to scroll
+                    const scrollPosition = window.scrollY - essayBox.offsetTop;
+                    const linePosition = (scrollPosition + windowHeight / 2) % essayBox.offsetHeight;
+                    readingLine.style.top = `${linePosition}px`;
+                } else {
+                    progressBar.style.width = '0%';
+                    readingLine.style.opacity = '0';
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Update active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

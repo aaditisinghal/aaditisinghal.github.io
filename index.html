@@ -9,22 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="dashboard">
-        <div class="nav-content">
-            <div class="logo">AS</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#works">Works</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="reading-progress">
-        <div class="reading-progress-bar"></div>
-    </div>
-
     <div class="background">
         <div class="shape shape1"></div>
         <div class="shape shape2"></div>
@@ -38,76 +22,30 @@
         <section id="home" class="active-section">
             <div class="container welcome-container">
                 <h1 class="animate-title">Hi! I'm Aaditi Singhal</h1>
-                <p class="subtitle animate-subtitle">Welcome to my creative space</p>
+                <p class="subtitle animate-subtitle">Welcome to my narrative journey</p>
                 <div class="button-group">
-                    <a href="#works" class="cta-button animate-button">Explore My Works</a>
-                    <a href="https://devpost.com/software/aa-x395vj" target="_blank" class="devpost-button animate-button">
-                        <i class="fas fa-code"></i> View AAROLIC
+                    <a href="page.html" class="cta-button animate-button">
+                        <i class="fas fa-book-open"></i>
+                        Read My Story
+                    </a>
+                    <a href="page2.html" class="devpost-button animate-button">
+                        <i class="fas fa-feather"></i>
+                        Read My Poetry
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">About Me</h2>
-                <div class="about-content animate-on-scroll">
-                    <p>I'm a passionate developer and creative writer, currently exploring the intersection of technology and storytelling. My journey spans from India to England, and now to the vibrant tech community at Georgia Tech.</p>
-                    <p>Through my work, I aim to bridge the gap between technical innovation and human connection, creating solutions that make a meaningful impact.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="works" class="works-section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">My Works</h2>
-                <div class="works-grid">
-                    <div class="work-card animate-on-scroll">
-                        <img src="image1.png" alt="Narrative Journey" class="work-image">
-                        <div class="work-content">
-                            <h3>Multimodal Literacy Narrative</h3>
-                            <p>A personal journey through technology and communication.</p>
-                            <a href="page.html" class="work-link">Read Story</a>
-                        </div>
-                    </div>
-                    <div class="work-card animate-on-scroll">
-                        <img src="image2.png" alt="Poetry Collection" class="work-image">
-                        <div class="work-content">
-                            <h3>Poetry in Code</h3>
-                            <p>Where technology meets verse - a collection of tech-inspired poetry.</p>
-                            <a href="page2.html" class="work-link">Read Poems</a>
-                        </div>
-                    </div>
-                    <div class="work-card animate-on-scroll">
-                        <img src="image3.png" alt="AAROLIC Project" class="work-image">
-                        <div class="work-content">
-                            <h3>AAROLIC</h3>
-                            <p>An innovative healthcare solution using AI technology.</p>
-                            <a href="https://devpost.com/software/aa-x395vj" target="_blank" class="work-link">View Project</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Get in Touch</h2>
-                <div class="contact-content animate-on-scroll">
-                    <div class="contact-links">
-                        <a href="mailto:asinghal@gatech.edu" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/aaditi-singhal" target="_blank" class="contact-link">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/aaditisinghal" target="_blank" class="contact-link">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                    </div>
+                <div class="social-links">
+                    <a href="mailto:asinghal@gatech.edu" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aaditi-singhal" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/aaditisinghal" target="_blank" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://devpost.com/software/aa-x395vj" target="_blank" class="social-link" title="AAROLIC Project">
+                        <i class="fas fa-code"></i>
+                    </a>
                 </div>
             </div>
         </section>
@@ -122,59 +60,10 @@
     </main>
 
     <script>
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        // Observe all elements with animate-on-scroll class
-        document.querySelectorAll('.animate-on-scroll, .work-card').forEach((element) => {
-            observer.observe(element);
-        });
-
-        // Reading progress bar
-        const progressBar = document.querySelector('.reading-progress-bar');
-        window.addEventListener('scroll', () => {
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const progress = (window.scrollY / windowHeight) * 100;
-            progressBar.style.width = `${progress}%`;
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Update active navigation link on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 60) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
+        // Animation for initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.animate-title, .animate-subtitle, .animate-button, .social-link').forEach((element, index) => {
+                element.style.animation = `fadeInUp 0.6s ${index * 0.2}s forwards`;
             });
         });
     </script>

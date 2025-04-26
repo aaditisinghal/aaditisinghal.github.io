@@ -10,9 +10,10 @@
     <style>
         .pdf-container {
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 60px);
             overflow: hidden;
             position: relative;
+            margin-top: 60px;
         }
         
         .pdf-viewer {
@@ -20,31 +21,20 @@
             height: 100%;
             border: none;
         }
-
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">
-        <i class="fas fa-arrow-left"></i> Back
-    </a>
+    <nav class="dashboard">
+        <div class="nav-content">
+            <div class="logo">AS</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page.html">Literacy Narrative</a></li>
+                <li><a href="page2.html" class="active">Ethnography</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <div class="pdf-container">
         <!-- PDF viewer will be added here once you provide the PDF -->
         <div style="text-align: center; padding-top: 40vh; color: var(--primary-color);">

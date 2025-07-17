@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaditi Singhal - AI/ML Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #2a0a2a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff6b9d;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: #c77dff;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.15s ease;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 107, 157, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(199, 125, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b9d, #c77dff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 107, 157, 0.3); }
+            to { text-shadow: 0 0 40px rgba(199, 125, 255, 0.5); }
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        .about-text strong {
+            color: #ff6b9d;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 107, 157, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6b9d;
+            margin-bottom: 0.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(199, 125, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 157, 0.1), rgba(199, 125, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(199, 125, 255, 0.3);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-description {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            color: #ffffff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-link {
+            color: #c77dff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #ff6b9d;
+            transform: translateX(5px);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ff6b9d;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(199, 125, 255, 0.2);
+            color: #ffffff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(199, 125, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .experience-timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff6b9d, #c77dff);
+            transform: translateX(-50%);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 45%;
+        }
+
+        .experience-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .experience-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .experience-content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(199, 125, 255, 0.2);
+            position: relative;
+        }
+
+        .experience-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #ff6b9d;
+            border-radius: 50%;
+        }
+
+        .experience-item:nth-child(odd) .experience-content::before {
+            right: -30px;
+        }
+
+        .experience-item:nth-child(even) .experience-content::before {
+            left: -30px;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: #ff6b9d;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-date {
+            color: #c77dff;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .contact {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 107, 157, 0.1);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: rgba(199, 125, 255, 0.1);
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 157, 0.1);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .experience-timeline::before {
+                left: 20px;
+            }
+
+            .experience-item {
+                width: calc(100% - 60px);
+                left: 60px !important;
+            }
+
+            .experience-item:nth-child(even) {
+                left: 60px !important;
+            }
+
+            .experience-content::before {
+                left: -30px !important;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Aaditi Singhal</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Aaditi Singhal</h1>
+            <p>AI/ML Developer & Healthcare Innovator</p>
+            <p>Transforming healthcare through cutting-edge artificial intelligence and machine learning</p>
+            <a href="#projects" class="cta-button">Explore My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I'm a <strong>Presidential Scholar</strong> at Georgia State University, pursuing a Bachelor's in Computer Science with a Minor in Biology. With a perfect <strong>4.3 GPA</strong>, I'm passionate about leveraging AI and ML to revolutionize healthcare.</p>
+                
+                <p>My research focuses on <strong>transcriptomics</strong> and <strong>neurobiology</strong>, while my projects span from AR nutrition apps to AI-driven healthcare platforms. I've published research on glucose monitoring and won multiple hackathons for innovative healthcare solutions.</p>
+                
+                <p>When I'm not coding, I'm representing India in international competitions, writing technical books, or mentoring fellow developers in the journey to make technology more accessible and impactful.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">97.2%</div>
+                    <div>Model Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.3</div>
+                    <div>GPA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div>Research Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div>Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3 class="project-title">MetabolX - AI-Driven Metabolite Analysis</h3>
+                <p class="project-description">Revolutionizing healthcare through predictive AI models trained on 20,000+ clinical samples. Achieved 97.2% accuracy in early detection of Alzheimer's and cancer using advanced machine learning techniques.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Kubernetes</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">NutriLens AR - Augmented Reality Nutrition</h3>
+                <p class="project-description">Hands-free AR nutrition scanner built in 36 hours using Snap Spectacles. Real-time calorie and macro analysis with < 200ms latency, transforming how people interact with food information.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Snap Spectacles</span>
+                    <span class="tech-tag">Lens Studio</span>
+                    <span class="tech-tag">GPT-4</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">WebSockets</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">AAROLIC - AI Healthcare iOS App</h3>
+                <p class="project-description">AI-driven iOS app for pre-diagnosis and e-prescriptions. Collaborated with doctors to create intuitive UI/UX focused on real-world medical workflows. Won Honorable Mention at Hacklytics, Georgia Tech.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Swift</span>
+                    <span class="tech-tag">SwiftUI</span>
+                    <span class="tech-tag">OpenAI APIs</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Figma</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">NeuroQuantify - Python Image Analysis</h3>
+                <p class="project-description">Advanced image analysis tool for neurobiology research using OpenCV and TensorFlow. Automates detection and quantification of gene expression patterns in convict cichlids for behavioral studies.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Scikit-image</span>
+                    <span class="tech-tag">Matplotlib</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming & Web</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Swift/SwiftUI</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">HTML5/CSS3</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>AI/ML & Data Science</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">XGBoost</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">CNNs</span>
+                    <span class="skill-tag">RNNs</span>
+                    <span class="skill-tag">Transformers</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">Heroku</span>
+                    <span class="skill-tag">Git/GitHub</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>AR/VR & Mobile</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Snap Lens Studio</span>
+                    <span class="skill-tag">ARKit</span>
+                    <span class="skill-tag">ARCore</span>
+                    <span class="skill-tag">iOS Development</span>
+                    <span class="skill-tag">Xcode</span>
+                    <span class="skill-tag">SwiftUI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2 class="section-title">Experience & Research</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-content">
+                    <h3 class="experience-title">Undergraduate Research - Transcriptomics</h3>
+                    <div class="experience-company">Georgia State University</div>
+                    <div class="experience-date">January 2025 - Present</div>
+                    <p class="experience-description">Conducting independent research under Dr. Brittany Ross, analyzing RNA and DNA sequencing data using R, BLAST, and NCBI databases to identify gene expression patterns.</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-content">
+                    <h3 class="experience-title">Neurobiology Research</h3>
+                    <div class="experience-company">Georgia State University</div>
+                    <div class="experience-date">January 2025 - May 2025</div>
+                    <p class="experience-description">Researching monogamous behavior in convict cichlids under Dr. Jonathan Sylvester, focusing on stress-induced amygdala development and gene expression analysis.</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-content">
+                    <h3 class="experience-title">Published Research - First Author</h3>
+                    <div class="experience-company">Biotechnology, Pune</div>
+                    <div class="experience-date">2024</div>
+                    <p class="experience-description">Published research on non-invasive glucose monitoring devices for Type 1 diabetes patients, mentored by Dr. Roshan Padmanabhan.</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-content">
+                    <h3 class="experience-title">Harvard Medical School</h3>
+                    <div class="experience-company">Physiology Course</div>
+                    <div class="experience-date">2023</div>
+                    <p class="experience-description">Completed advanced physiology course as a 10th grader with maximum scholarship, mentored by Professor Richard M. Schwartzstein.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <p>Ready to innovate in healthcare technology? Let's build something amazing together.</p>
+        <div class="contact-links">
+            <a href="mailto:asinghal6@student.gsu.edu" class="contact-link">Email Me</a>
+            <a href="https://linkedin.com/in/aaditi-singhal-4b30b322b" class="contact-link">LinkedIn</a>
+            <a href="https://github.com/aaditisinghal" class="contact-link">GitHub</a>
+        </div>
+    </section>
+
+    <script>
+        // Cursor animation
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursor

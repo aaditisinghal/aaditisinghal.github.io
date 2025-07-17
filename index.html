@@ -5,41 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aaditi Singhal - AI/ML Developer</title>
     <style>
+        :root {
+            --primary-color: #ff6b9d;
+            --secondary-color: #c77dff;
+            --bg-dark: #0a0a0a;
+            --bg-gradient-start: #0a0a0a;
+            --bg-gradient-mid: #1a0a1a;
+            --bg-gradient-end: #2a0a2a;
+            --text-light: #ffffff;
+            --text-medium: #cccccc;
+            --text-dark: #a0a0a0;
+            --card-bg: rgba(0, 0, 0, 0.5);
+            --border-primary: rgba(255, 107, 157, 0.2);
+            --border-secondary: rgba(199, 125, 255, 0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #2a0a2a 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+            color: var(--text-light);
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            cursor: none; /* Hide default cursor */
+        }
+
+        .cursor, .cursor-follower {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s linear;
         }
 
         .cursor {
             width: 20px;
             height: 20px;
-            border: 2px solid #ff6b9d;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
             mix-blend-mode: difference;
         }
 
         .cursor-follower {
             width: 8px;
             height: 8px;
-            background: #c77dff;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.15s ease;
+            background: var(--secondary-color);
         }
 
         .nav {
@@ -48,8 +66,9 @@
             width: 100%;
             z-index: 1000;
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             background: rgba(0, 0, 0, 0.8);
-            border-bottom: 1px solid rgba(255, 107, 157, 0.1);
+            border-bottom: 1px solid var(--border-primary);
             transition: all 0.3s ease;
         }
 
@@ -65,7 +84,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -78,27 +97,47 @@
         }
 
         .nav-links a {
-            color: #ffffff;
+            color: var(--text-light);
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
+            padding-bottom: 5px;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after, .nav-links a.active::after {
             width: 100%;
         }
 
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--text-light);
+        }
+
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -128,7 +167,7 @@
             font-size: clamp(3rem, 8vw, 8rem);
             font-weight: 900;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b9d, #c77dff, #ffffff);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--text-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -140,18 +179,25 @@
             to { text-shadow: 0 0 40px rgba(199, 125, 255, 0.5); }
         }
 
-        .hero-content p {
+        .hero-content .subtitle {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #cccccc;
+            margin-bottom: 1rem;
+            color: var(--text-medium);
             max-width: 600px;
         }
 
+        .hero-content .description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-dark);
+            max-width: 600px;
+        }
+        
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: linear-gradient(45deg, #ff6b9d, #c77dff);
-            color: #ffffff;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -176,87 +222,112 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
         }
 
+        /* General Section Styling */
         .section {
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 5vw, 3rem);
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             text-align: center;
-            background: linear-gradient(45deg, #ff6b9d, #c77dff);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
+        /* Reveal Animation on Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
         .about-text {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
-            color: #cccccc;
+            color: var(--text-medium);
         }
 
+        .about-text p { margin-bottom: 1.5rem; }
+        .about-text p:last-child { margin-bottom: 0; }
+
         .about-text strong {
-            color: #ff6b9d;
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .stat-card {
             text-align: center;
-            padding: 2rem;
-            background: rgba(255, 107, 157, 0.1);
+            padding: 1.5rem;
+            background: rgba(255, 107, 157, 0.05);
             border-radius: 20px;
-            border: 1px solid rgba(255, 107, 157, 0.2);
+            border: 1px solid var(--border-primary);
             transition: all 0.3s ease;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
+            background: rgba(255, 107, 157, 0.1);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #ff6b9d;
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
 
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        /* Projects Section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 2.5rem;
         }
 
         .project-card {
-            background: rgba(0, 0, 0, 0.5);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 2rem;
-            border: 1px solid rgba(199, 125, 255, 0.2);
+            border: 1px solid var(--border-secondary);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::before {
@@ -269,6 +340,7 @@
             background: linear-gradient(45deg, rgba(255, 107, 157, 0.1), rgba(199, 125, 255, 0.1));
             opacity: 0;
             transition: opacity 0.3s ease;
+            z-index: 0;
         }
 
         .project-card:hover::before {
@@ -284,17 +356,18 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: var(--text-light);
             position: relative;
             z-index: 2;
         }
 
         .project-description {
-            color: #cccccc;
+            color: var(--text-medium);
             line-height: 1.6;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 2;
+            flex-grow: 1;
         }
 
         .project-tech {
@@ -307,8 +380,8 @@
         }
 
         .tech-tag {
-            background: linear-gradient(45deg, #ff6b9d, #c77dff);
-            color: #ffffff;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -320,32 +393,33 @@
             gap: 1rem;
             position: relative;
             z-index: 2;
+            margin-top: auto;
         }
 
         .project-link {
-            color: #c77dff;
+            color: var(--secondary-color);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .project-link:hover {
-            color: #ff6b9d;
+            color: var(--primary-color);
             transform: translateX(5px);
         }
 
+        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .skill-category {
-            background: rgba(0, 0, 0, 0.5);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 20px;
-            border: 1px solid rgba(255, 107, 157, 0.2);
+            border: 1px solid var(--border-primary);
             transition: all 0.3s ease;
         }
 
@@ -356,20 +430,20 @@
 
         .skill-category h3 {
             font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #ff6b9d;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .skill-tag {
             background: rgba(199, 125, 255, 0.2);
-            color: #ffffff;
-            padding: 0.3rem 0.8rem;
+            color: var(--text-light);
+            padding: 0.4rem 0.9rem;
             border-radius: 15px;
             font-size: 0.9rem;
             transition: all 0.3s ease;
@@ -380,6 +454,7 @@
             transform: translateY(-2px);
         }
 
+        /* Experience Section */
         .experience-timeline {
             position: relative;
             margin-top: 3rem;
@@ -392,91 +467,105 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, #ff6b9d, #c77dff);
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
             transform: translateX(-50%);
         }
 
         .experience-item {
             position: relative;
             margin-bottom: 3rem;
-            width: 45%;
+            width: calc(50% - 40px);
         }
+        .experience-item:last-child { margin-bottom: 0; }
+
 
         .experience-item:nth-child(odd) {
             left: 0;
+            padding-right: 40px;
         }
 
         .experience-item:nth-child(even) {
-            left: 55%;
+            left: calc(50% + 40px);
+            padding-left: 40px;
         }
 
         .experience-content {
-            background: rgba(0, 0, 0, 0.5);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 20px;
-            border: 1px solid rgba(199, 125, 255, 0.2);
+            border: 1px solid var(--border-secondary);
             position: relative;
         }
 
-        .experience-content::before {
+        .experience-content::after { /* The dot on the timeline */
             content: '';
             position: absolute;
             top: 20px;
-            width: 20px;
-            height: 20px;
-            background: #ff6b9d;
+            width: 16px;
+            height: 16px;
+            background: var(--bg-dark);
+            border: 3px solid var(--primary-color);
             border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .experience-item:nth-child(odd) .experience-content::after {
+            right: -49px;
         }
 
-        .experience-item:nth-child(odd) .experience-content::before {
-            right: -30px;
-        }
-
-        .experience-item:nth-child(even) .experience-content::before {
-            left: -30px;
+        .experience-item:nth-child(even) .experience-content::after {
+            left: -49px;
         }
 
         .experience-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-light);
             margin-bottom: 0.5rem;
         }
 
         .experience-company {
-            color: #ff6b9d;
+            color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .experience-date {
-            color: #c77dff;
+            color: var(--secondary-color);
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
         .experience-description {
-            color: #cccccc;
+            color: var(--text-medium);
             line-height: 1.6;
         }
 
+        /* Contact Section */
         .contact {
-            background: rgba(0, 0, 0, 0.8);
             text-align: center;
         }
 
+        .contact p {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+        
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .contact-link {
             display: inline-block;
             padding: 1rem 2rem;
-            background: linear-gradient(45deg, #ff6b9d, #c77dff);
-            color: #ffffff;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -488,6 +577,16 @@
             box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
         }
 
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-secondary);
+            color: var(--text-dark);
+        }
+
+        /* Floating Shapes Background */
         .floating-shapes {
             position: fixed;
             top: 0;
@@ -501,77 +600,101 @@
         .shape {
             position: absolute;
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: float 10s ease-in-out infinite;
+            transition: transform 0.5s ease-out; /* For parallax effect */
         }
 
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
+        .shape.s1 {
+            width: 80px; height: 80px;
             background: rgba(255, 107, 157, 0.1);
-            top: 20%;
-            left: 10%;
+            top: 20%; left: 10%;
             animation-delay: 0s;
         }
 
-        .shape:nth-child(2) {
-            width: 60px;
-            height: 60px;
+        .shape.s2 {
+            width: 60px; height: 60px;
             background: rgba(199, 125, 255, 0.1);
-            top: 60%;
-            right: 10%;
+            top: 60%; right: 10%;
             animation-delay: 2s;
         }
 
-        .shape:nth-child(3) {
-            width: 40px;
-            height: 40px;
+        .shape.s3 {
+            width: 40px; height: 40px;
             background: rgba(255, 107, 157, 0.1);
-            bottom: 20%;
-            left: 20%;
+            bottom: 20%; left: 20%;
             animation-delay: 4s;
         }
-
+        
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+            100% { transform: translateY(0px); }
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
             }
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 100%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: var(--bg-dark);
+                gap: 3rem;
+                transition: right 0.4s ease-in-out;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a { font-size: 1.5rem; }
+
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 
             .experience-timeline::before {
                 left: 20px;
+                transform: translateX(0);
             }
 
-            .experience-item {
-                width: calc(100% - 60px);
-                left: 60px !important;
+            .experience-item, .experience-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                padding-left: 50px;
+                padding-right: 0;
             }
 
-            .experience-item:nth-child(even) {
-                left: 60px !important;
-            }
-
-            .experience-content::before {
-                left: -30px !important;
+            .experience-content::after, .experience-item:nth-child(even) .experience-content::after {
+                left: -28px;
             }
 
             .contact-links {
                 flex-direction: column;
                 align-items: center;
+                gap: 1.5rem;
             }
         }
+
     </style>
 </head>
 <body>
@@ -579,14 +702,14 @@
     <div class="cursor-follower"></div>
     
     <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
     </div>
 
     <nav class="nav">
         <div class="nav-container">
-            <div class="logo">Aaditi Singhal</div>
+            <a href="#home" class="logo">Aaditi Singhal</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -595,227 +718,263 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
-    <section id="home" class="hero">
+    <header id="home" class="hero">
         <div class="hero-bg"></div>
-        <div class="hero-content">
+        <div class="hero-content reveal">
             <h1>Aaditi Singhal</h1>
-            <p>AI/ML Developer & Healthcare Innovator</p>
-            <p>Transforming healthcare through cutting-edge artificial intelligence and machine learning</p>
+            <p class="subtitle">AI/ML Developer & Healthcare Innovator</p>
+            <p class="description">Transforming healthcare through cutting-edge artificial intelligence and machine learning.</p>
             <a href="#projects" class="cta-button">Explore My Work</a>
         </div>
-    </section>
+    </header>
 
-    <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>I'm a <strong>Presidential Scholar</strong> at Georgia State University, pursuing a Bachelor's in Computer Science with a Minor in Biology. With a perfect <strong>4.3 GPA</strong>, I'm passionate about leveraging AI and ML to revolutionize healthcare.</p>
-                
-                <p>My research focuses on <strong>transcriptomics</strong> and <strong>neurobiology</strong>, while my projects span from AR nutrition apps to AI-driven healthcare platforms. I've published research on glucose monitoring and won multiple hackathons for innovative healthcare solutions.</p>
-                
-                <p>When I'm not coding, I'm representing India in international competitions, writing technical books, or mentoring fellow developers in the journey to make technology more accessible and impactful.</p>
+    <main>
+        <section id="about" class="section">
+            <div class="reveal">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I'm a <strong>Presidential Scholar</strong> at Georgia State University, pursuing a Bachelor's in Computer Science with a Minor in Biology. With a perfect <strong>4.3 GPA</strong>, I'm passionate about leveraging AI and ML to revolutionize healthcare.</p>
+                        <p>My research focuses on <strong>transcriptomics</strong> and <strong>neurobiology</strong>, while my projects span from AR nutrition apps to AI-driven healthcare platforms. I've published research on glucose monitoring and won multiple hackathons for innovative healthcare solutions.</p>
+                        <p>When I'm not coding, I'm representing India in international competitions, writing technical books, or mentoring fellow developers in the journey to make technology more accessible and impactful.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">97.2%</div>
+                            <div class="stat-label">Model Accuracy</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4.3</div>
+                            <div class="stat-label">GPA</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Research Projects</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Awards</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">97.2%</div>
-                    <div>Model Accuracy</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4.3</div>
-                    <div>GPA</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5+</div>
-                    <div>Research Projects</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div>Awards</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="section">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3 class="project-title">MetabolX - AI-Driven Metabolite Analysis</h3>
-                <p class="project-description">Revolutionizing healthcare through predictive AI models trained on 20,000+ clinical samples. Achieved 97.2% accuracy in early detection of Alzheimer's and cancer using advanced machine learning techniques.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">XGBoost</span>
-                    <span class="tech-tag">Scikit-learn</span>
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Kubernetes</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">View Project →</a>
+        <section id="projects" class="section">
+            <div class="reveal">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <h3 class="project-title">MetabolX - AI-Driven Metabolite Analysis</h3>
+                        <p class="project-description">Revolutionizing healthcare through predictive AI models trained on 20,000+ clinical samples. Achieved 97.2% accuracy in early detection of Alzheimer's and cancer.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">TensorFlow</span><span class="tech-tag">XGBoost</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Flask</span><span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-card reveal">
+                        <h3 class="project-title">NutriLens AR - Augmented Reality Nutrition</h3>
+                        <p class="project-description">Hands-free AR nutrition scanner built in 36 hours using Snap Spectacles. Real-time calorie and macro analysis with &lt; 200ms latency.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Snap Spectacles</span><span class="tech-tag">Lens Studio</span><span class="tech-tag">GPT-4</span><span class="tech-tag">Node.js</span><span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-card reveal">
+                        <h3 class="project-title">AAROLIC - AI Healthcare iOS App</h3>
+                        <p class="project-description">AI-driven iOS app for pre-diagnosis and e-prescriptions. Collaborated with doctors to create intuitive UI/UX focused on real-world medical workflows.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Swift</span><span class="tech-tag">SwiftUI</span><span class="tech-tag">OpenAI APIs</span><span class="tech-tag">Python</span><span class="tech-tag">Figma</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                     <div class="project-card reveal">
+                        <h3 class="project-title">NeuroQuantify - Python Image Analysis</h3>
+                        <p class="project-description">Advanced image analysis tool for neurobiology research. Automates detection and quantification of gene expression patterns for behavioral studies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span><span class="tech-tag">OpenCV</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">Scikit-image</span><span class="tech-tag">Matplotlib</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="project-card">
-                <h3 class="project-title">NutriLens AR - Augmented Reality Nutrition</h3>
-                <p class="project-description">Hands-free AR nutrition scanner built in 36 hours using Snap Spectacles. Real-time calorie and macro analysis with < 200ms latency, transforming how people interact with food information.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Snap Spectacles</span>
-                    <span class="tech-tag">Lens Studio</span>
-                    <span class="tech-tag">GPT-4</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">WebSockets</span>
-                    <span class="tech-tag">MongoDB</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">View Project →</a>
+        <section id="skills" class="section">
+            <div class="reveal">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming & Web</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span><span class="skill-tag">Swift/SwiftUI</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">Flask</span><span class="skill-tag">FastAPI</span><span class="skill-tag">HTML5/CSS3</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>AI/ML & Data Science</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">XGBoost</span><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span><span class="skill-tag">CNNs</span><span class="skill-tag">RNNs</span><span class="skill-tag">Transformers</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cloud & DevOps</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS</span><span class="skill-tag">GCP</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Firebase</span><span class="skill-tag">Heroku</span><span class="skill-tag">Git/GitHub</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>AR/VR & Mobile</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Snap Lens Studio</span><span class="skill-tag">ARKit</span><span class="skill-tag">ARCore</span><span class="skill-tag">iOS Development</span><span class="skill-tag">Xcode</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="project-card">
-                <h3 class="project-title">AAROLIC - AI Healthcare iOS App</h3>
-                <p class="project-description">AI-driven iOS app for pre-diagnosis and e-prescriptions. Collaborated with doctors to create intuitive UI/UX focused on real-world medical workflows. Won Honorable Mention at Hacklytics, Georgia Tech.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Swift</span>
-                    <span class="tech-tag">SwiftUI</span>
-                    <span class="tech-tag">OpenAI APIs</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Figma</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">View Project →</a>
+        <section id="experience" class="section">
+            <div class="reveal">
+                <h2 class="section-title">Experience & Research</h2>
+                <div class="experience-timeline">
+                    <div class="experience-item reveal">
+                        <div class="experience-content">
+                            <h3 class="experience-title">Undergraduate Research - Transcriptomics</h3>
+                            <div class="experience-company">Georgia State University</div>
+                            <div class="experience-date">January 2025 - Present</div>
+                            <p class="experience-description">Conducting independent research, analyzing RNA and DNA sequencing data using R, BLAST, and NCBI databases to identify gene expression patterns.</p>
+                        </div>
+                    </div>
+                    <div class="experience-item reveal">
+                        <div class="experience-content">
+                            <h3 class="experience-title">Neurobiology Research</h3>
+                            <div class="experience-company">Georgia State University</div>
+                            <div class="experience-date">January 2025 - May 2025</div>
+                            <p class="experience-description">Researched monogamous behavior in convict cichlids, focusing on stress-induced amygdala development and gene expression analysis.</p>
+                        </div>
+                    </div>
+                    <div class="experience-item reveal">
+                        <div class="experience-content">
+                            <h3 class="experience-title">Published Research - First Author</h3>
+                            <div class="experience-company">Biotechnology, Pune</div>
+                            <div class="experience-date">2024</div>
+                            <p class="experience-description">Published research on non-invasive glucose monitoring devices for Type 1 diabetes patients, mentored by Dr. Roshan Padmanabhan.</p>
+                        </div>
+                    </div>
+                    <div class="experience-item reveal">
+                        <div class="experience-content">
+                            <h3 class="experience-title">Harvard Medical School</h3>
+                            <div class="experience-company">Physiology Course</div>
+                            <div class="experience-date">2023</div>
+                            <p class="experience-description">Completed advanced physiology course as a 10th grader with maximum scholarship, mentored by Professor Richard M. Schwartzstein.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="project-card">
-                <h3 class="project-title">NeuroQuantify - Python Image Analysis</h3>
-                <p class="project-description">Advanced image analysis tool for neurobiology research using OpenCV and TensorFlow. Automates detection and quantification of gene expression patterns in convict cichlids for behavioral studies.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">OpenCV</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">Scikit-image</span>
-                    <span class="tech-tag">Matplotlib</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link">View Project →</a>
+        <section id="contact" class="section contact">
+            <div class="reveal">
+                <h2 class="section-title">Let's Connect</h2>
+                <p>Ready to innovate in healthcare technology? I'm always open to discussing new projects, research collaborations, or opportunities to make an impact. Let's build something amazing together.</p>
+                <div class="contact-links">
+                    <a href="mailto:asinghal6@student.gsu.edu" class="contact-link">Email Me</a>
+                    <a href="https://linkedin.com/in/aaditi-singhal-4b30b322b" target="_blank" class="contact-link">LinkedIn</a>
+                    <a href="https://github.com/aaditisinghal" target="_blank" class="contact-link">GitHub</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="skills" class="section">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Programming & Web</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Swift/SwiftUI</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Flask</span>
-                    <span class="skill-tag">FastAPI</span>
-                    <span class="skill-tag">HTML5/CSS3</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>AI/ML & Data Science</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">Scikit-learn</span>
-                    <span class="skill-tag">XGBoost</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">CNNs</span>
-                    <span class="skill-tag">RNNs</span>
-                    <span class="skill-tag">Transformers</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Cloud & DevOps</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">GCP</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Kubernetes</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">Heroku</span>
-                    <span class="skill-tag">Git/GitHub</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>AR/VR & Mobile</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Snap Lens Studio</span>
-                    <span class="skill-tag">ARKit</span>
-                    <span class="skill-tag">ARCore</span>
-                    <span class="skill-tag">iOS Development</span>
-                    <span class="skill-tag">Xcode</span>
-                    <span class="skill-tag">SwiftUI</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section">
-        <h2 class="section-title">Experience & Research</h2>
-        <div class="experience-timeline">
-            <div class="experience-item">
-                <div class="experience-content">
-                    <h3 class="experience-title">Undergraduate Research - Transcriptomics</h3>
-                    <div class="experience-company">Georgia State University</div>
-                    <div class="experience-date">January 2025 - Present</div>
-                    <p class="experience-description">Conducting independent research under Dr. Brittany Ross, analyzing RNA and DNA sequencing data using R, BLAST, and NCBI databases to identify gene expression patterns.</p>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-content">
-                    <h3 class="experience-title">Neurobiology Research</h3>
-                    <div class="experience-company">Georgia State University</div>
-                    <div class="experience-date">January 2025 - May 2025</div>
-                    <p class="experience-description">Researching monogamous behavior in convict cichlids under Dr. Jonathan Sylvester, focusing on stress-induced amygdala development and gene expression analysis.</p>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-content">
-                    <h3 class="experience-title">Published Research - First Author</h3>
-                    <div class="experience-company">Biotechnology, Pune</div>
-                    <div class="experience-date">2024</div>
-                    <p class="experience-description">Published research on non-invasive glucose monitoring devices for Type 1 diabetes patients, mentored by Dr. Roshan Padmanabhan.</p>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-content">
-                    <h3 class="experience-title">Harvard Medical School</h3>
-                    <div class="experience-company">Physiology Course</div>
-                    <div class="experience-date">2023</div>
-                    <p class="experience-description">Completed advanced physiology course as a 10th grader with maximum scholarship, mentored by Professor Richard M. Schwartzstein.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <p>Ready to innovate in healthcare technology? Let's build something amazing together.</p>
-        <div class="contact-links">
-            <a href="mailto:asinghal6@student.gsu.edu" class="contact-link">Email Me</a>
-            <a href="https://linkedin.com/in/aaditi-singhal-4b30b322b" class="contact-link">LinkedIn</a>
-            <a href="https://github.com/aaditisinghal" class="contact-link">GitHub</a>
-        </div>
-    </section>
+    <footer class="reveal">
+        <p>&copy; 2025 Aaditi Singhal. All Rights Reserved.</p>
+    </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.querySelector('.cursor');
+            const follower = document.querySelector('.cursor-follower');
+            const shapes = document.querySelectorAll('.shape');
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksA = document.querySelectorAll('.nav-links a');
+
+            // 1. Custom Cursor & Parallax Shapes Logic
+            document.addEventListener('mousemove', e => {
+                // Animate cursor
+                cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+                follower.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+
+                // Parallax effect for shapes
+                const parallaxIntensity = 20;
+                const x = (window.innerWidth - e.pageX * 2) / parallaxIntensity;
+                const y = (window.innerHeight - e.pageY * 2) / parallaxIntensity;
+                
+                shapes.forEach(shape => {
+                    shape.style.transform = `translateX(${x}px) translateY(${y}px)`;
+                });
+            });
+
+            // 2. Mobile Navigation (Hamburger Menu)
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            // Close menu when a link is clicked
+            navLinksA.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // 3. Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 4. Active Navigation Link Highlighting
+            const sections = document.querySelectorAll('section[id]');
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinksA.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            
+            sections.forEach(section => sectionObserver.observe(section));
+        });
+    </script>
+</body>
+</html>

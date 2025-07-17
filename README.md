@@ -1,5 +1,5 @@
-# portfoliowebsite
-🌟 Aaditi Singhal - Personal Portfolio
+# 🌟 Aaditi Singhal - Personal Portfolio
+
 A modern, responsive personal portfolio website showcasing my journey as a Computer Science student, AI/ML researcher, and biotech innovator.
 🚀 Live Demo
 Visit my portfolio: https://aaditisinghal.github.io

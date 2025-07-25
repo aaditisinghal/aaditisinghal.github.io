@@ -660,7 +660,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <span><img src="Honors picture.jpg" style="width:295px;height:305px;"></span>
+                    <span><img src="Honors picture.jpg" style="width:300px;height:305px;"></span>
                 </div>
                 <div class="about-text">
                     <p>I'm a Presidential Scholar and Honors student at Georgia State University, pursuing a Bachelor's in Computer Science with a minor in Biology. My passion lies at the intersection of artificial intelligence and biotechnology, where I conduct cutting-edge research in transcriptomics and develop innovative healthcare solutions.</p>
@@ -1132,35 +1132,7 @@
             });
         });
 
-        // Add cursor trail effect
-        const cursor = document.createElement('div');
-        cursor.className = 'cursor-trail';
-        cursor.style.cssText = `
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(45deg, #9333ea, #ec4899);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: all 0.1s ease;
-            opacity: 0.7;
-        `;
-        document.body.appendChild(cursor);
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.addEventListener('mousedown', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
-        });
-
-        document.addEventListener('mouseup', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
     </script>
 </body>
 </html>

@@ -182,26 +182,16 @@
             margin: 0 auto;
             position: relative;
             overflow: hidden;
+            padding: 5px;
         }
 
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            right: 5px;
-            bottom: 5px;
-            background: #0a0a0a;
+        .about-image img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-        }
-
-        .about-image span {
-            font-size: 4rem;
+            object-fit: cover;
+            object-position: center;
             z-index: 1;
-            background: linear-gradient(45deg, #9333ea, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .about-text {
@@ -244,14 +234,17 @@
             color: #cccccc;
             margin-top: 0.5rem;
         }
+
         /* Education Section */
         .education-timeline {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
         }
 
         .education-item {
-            margin-bottom: 3rem;
             position: relative;
         }
 
@@ -364,6 +357,7 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.02); }
         }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -734,12 +728,17 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
+
             .education-header {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 gap: 1rem;
+            }
+
+            .education-timeline {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .education-logo {
@@ -823,8 +822,8 @@
             </div>
         </div>
     </section>
-    
-  <section id="education" class="fade-in">
+
+    <section id="education" class="fade-in">
         <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="education-timeline">
@@ -852,7 +851,7 @@
                 <div class="education-item">
                     <div class="education-content">
                         <div class="education-header">
-                            <img src="https://www.vidyavalleyschool.org/assets/images/logo.png" alt="Vidyavalley International School" class="education-logo">
+                            <img src="images (2).jpeg" alt="Vidyavalley International School" class="education-logo">
                             <div class="education-details">
                                 <h3 class="education-title">High School Diploma</h3>
                                 <div class="education-institution">Vidyavalley International School</div>
@@ -872,6 +871,7 @@
             </div>
         </div>
     </section>
+
     <section id="projects" class="fade-in">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
@@ -1316,3 +1316,5 @@
     </script>
 </body>
 </html>
+
+                

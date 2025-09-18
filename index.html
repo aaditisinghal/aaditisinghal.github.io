@@ -1,1 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaditi Singhal - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Aaditi Singhal</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span>Hi, I'm </span>
+                    <span class="text-primary">Aaditi Singhal</span>
+                </h1>
+                <p class="hero-subtitle">Computer Science Student | AI/ML Enthusiast | Full-Stack Developer</p>
+                <p class="hero-description">
+                    Presidential Scholar at Georgia State University with a passion for building innovative AI solutions and
+                    winning hackathons. Currently co-founding ProfitWise and creating impactful healthcare technology.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                        View My Projects
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                    <div class="social-links">
+                        <a href="https://github.com/aaditisinghal" target="_blank" class="btn btn-outline">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/aaditi-singhal-4b30b322b/" target="_blank" class="btn btn-outline">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:asinghal6@student.gsu.edu" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">4.3</div>
+                        <div class="stat-label">GPA</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1st</div>
+                        <div class="stat-label">Place HackMIT 2025</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Major Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Passionate about creating innovative solutions that make a real impact</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Presidential Scholar & AI Innovator</h3>
+                    <p>
+                        I'm a Computer Science student at Georgia State University with a 4.3 GPA, currently serving as a 
+                        Software Engineer and Co-Founder at ProfitWise. My passion lies in developing AI-driven solutions 
+                        that solve real-world problems, particularly in healthcare and sustainability.
+                    </p>
+                    <p>
+                        My recent victory at HackMIT 2025 with EcoAI demonstrates my ability to create impactful technology 
+                        under pressure. I specialize in full-stack development, machine learning, and have experience 
+                        building production-ready applications that serve thousands of users.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Education</h4>
+                                <p>Computer Science, Georgia State University</p>
+                                <p>Presidential Scholar (4.3 GPA)</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <h4>Experience</h4>
+                                <p>Software Engineer & Co-Founder at ProfitWise</p>
+                                <p>Full-stack development and AI integration</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Achievements</h4>
+                                <p>1st Place HackMIT 2025</p>
+                                <p>Multiple hackathon awards and recognitions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>A showcase of my most impactful projects, from award-winning hackathon solutions to production-ready applications</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>EcoAI - Carbon-Conscious SDK</h3>
+                        <span class="award-badge">
+                            <i class="fas fa-trophy"></i>
+                            1st Place HackMIT 2025
+                        </span>
+                    </div>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> MIT, Boston</span>
+                        <span><i class="fas fa-calendar"></i> September 2025</span>
+                    </div>
+                    <p class="project-description">
+                        Winner of HackMIT 2025 (1st Place) - Cut AI carbon emissions by 20-40% and token usage by 45% through intelligent prompt compression and GPU optimization.
+                    </p>
+                    <div class="project-achievements">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li>Enhanced GPU efficiency by 15-75% with Zeus-inspired framework</li>
+                            <li>Built production-ready dashboard with Flask, React, PostgreSQL</li>
+                            <li>Preserved ≥95% semantic quality with deep learning compression</li>
+                            <li>Real-time tracking of CO₂ savings for enterprises</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">GPU Optimization</span>
+                    </div>
+                    <a href="https://plume.hackmit.org/project/shoar-towhu-gjzbg-ksubb" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Project
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>MetabolX - AI Healthcare Analytics</h3>
+                    </div>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Princeton University, NJ</span>
+                        <span><i class="fas fa-calendar"></i> March - June 2025</span>
+                    </div>
+                    <p class="project-description">
+                        AI-driven metabolite analysis platform for predictive healthcare, achieving 97.2% accuracy in disease risk prediction from clinical samples.
+                    </p>
+                    <div class="project-achievements">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li>Trained models on 20,000 clinical metabolite samples</li>
+                            <li>Early detection of Alzheimer's and cancer from 49 biomarkers</li>
+                            <li>Generated personalized medication plans in <2 seconds</li>
+                            <li>HIPAA-compliant digital-twin dashboard with 99.9% uptime</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">GPT-4</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <a href="https://devpost.com/software/metabolx" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Project
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>NutriLens AR - Nutrition Assistant</h3>
+                        <span class="award-badge">
+                            <i class="fas fa-trophy"></i>
+                            Verbal Mention - SNAP AR Track
+                        </span>
+                    </div>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Georgia Tech, Atlanta</span>
+                        <span><i class="fas fa-calendar"></i> April 2025</span>
+                    </div>
+                    <p class="project-description">
+                        Hands-free AR nutrition scanner using Snap Spectacles with real-time calorie analysis and personalized diet coaching.
+                    </p>
+                    <div class="project-achievements">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li>Built in 36-hour hackathon with <200ms latency</li>
+                            <li>Real-time calorie & macro breakdowns in AR lens</li>
+                            <li>Bi-directional sync with web dashboard and iOS app</li>
+                            <li>Won Verbal Mention in SNAP AR sponsor track</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Snap Spectacles</span>
+                        <span class="tech-tag">Lens Studio</span>
+                        <span class="tech-tag">GPT-4</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">WebSockets</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <a href="https://devpost.com/software/nutrilens-ar" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Project
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>AAROLIC - AI Healthcare iOS App</h3>
+                    </div>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Georgia Tech, Atlanta</span>
+                        <span><i class="fas fa-calendar"></i> February - May 2025</span>
+                    </div>
+                    <p class="project-description">
+                        AI-driven iOS app for pre-diagnosis and e-prescriptions, developed in collaboration with doctors for clinical use.
+                    </p>
+                    <div class="project-achievements">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li>Collaborated with 7 doctors for prototype testing</li>
+                            <li>Built with Swift, SwiftUI, and OpenAI APIs</li>
+                            <li>Focused on UI/UX and product-market fit</li>
+                            <li>Serial updates based on medical professional feedback</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Swift</span>
+                        <span class="tech-tag">SwiftUI</span>
+                        <span class="tech-tag">OpenAI APIs</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Objective-C</span>
+                        <span class="tech-tag">Figma</span>
+                    </div>
+                    <a href="https://devpost.com/software/aa-x395vj" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>A comprehensive toolkit for building innovative solutions</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Swift</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> AI/ML Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">OpenAI APIs</span>
+                        <span class="skill-tag">Hugging Face</span>
+                        <span class="skill-tag">Keras</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Web Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Heroku</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile & AR</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SwiftUI</span>
+                        <span class="skill-tag">iOS Development</span>
+                        <span class="skill-tag">Snap Spectacles</span>
+                        <span class="skill-tag">Lens Studio</span>
+                        <span class="skill-tag">AR Development</span>
+                        <span class="skill-tag">React Native</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">WebSockets</span>
+                        <span class="skill-tag">Chart.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Let's connect and discuss opportunities to collaborate</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:asinghal6@student.gsu.edu">asinghal6@student.gsu.edu</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/aaditi-singhal-4b30b322b/" target="_blank">Connect with me</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/aaditisinghal" target="_blank">View my repositories</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Atlanta, GA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Aaditi Singhal. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/aaditisinghal" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/aaditi-singhal-4b30b322b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:asinghal6@student.gsu.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
 

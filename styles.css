@@ -43,6 +43,29 @@ body {
   background-color: var(--bg-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+.spotlight {
+      font-size: clamp(28px, 6vw, 92px);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      max-width: 1200px;
+      color: #555; /* dimmed text */
+      position: relative;
+
+      /* use mask to reveal white */
+      background: white;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      --x: 50%;
+      --y: 50%;
+      background-image: radial-gradient(
+        circle 200px at var(--x) var(--y),
+        white 0%,
+        white 40%,
+        #555 80%
+      );
+    }
 
 .container {
   max-width: 1200px;

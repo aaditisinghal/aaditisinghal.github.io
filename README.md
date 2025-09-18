@@ -34,14 +34,9 @@ Contact form and information
 
 🛠️ Technologies Used
 
-HTML5: Semantic markup and modern web standards
-CSS3:Flexbox and Grid layouts
-     Custom animations and transitions
-     Responsive design with media queries
-     Advanced gradients and visual effects
 
-JavaScript:DOM manipulation
-           Intersection Observer API
-           Event handling
-           Form validation
-           Dynamic animations
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **Styling**: Custom CSS with CSS Variables for theming
+- **Icons**: Font Awesome
+- **Fonts**: Google Fonts (Inter)
+- **Responsive**: CSS Grid and Flexbox

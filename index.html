@@ -435,7 +435,22 @@
             </div>
         </div>
     </section>
-    <div class="sc-1ty4now-4 hpMsRA" style="background-position: 332px 140px;">all your personal data and <br>transactions are encrypted and <br>secured. there's no room for mistakes <br>because we didn't leave any.</div>
+     <div class="spotlight" id="spotlight">
+    all your personal data and <br>
+    transactions are encrypted and <br>
+    secured. there's no room for mistakes <br>
+    because we didn't leave any.
+  </div>
+
+  <script>
+    const spotlight = document.getElementById("spotlight");
+    document.addEventListener("mousemove", e => {
+      let x = e.clientX + "px";
+      let y = e.clientY + "px";
+      spotlight.style.setProperty("--x", x);
+      spotlight.style.setProperty("--y", y);
+    });
+  </script>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">

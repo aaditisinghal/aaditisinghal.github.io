@@ -1,6 +1,6 @@
 # Aaditi Singhal Portfolio
 
-A clean, modern portfolio website built with pure HTML, CSS, and JavaScript.
+A clean, modern portfolio website built with pure HTML, CSS, and JavaScript
 
 - **Design:** Cream, white, and black color palette
 - **Features:** Typewriter effect, scroll reveal animations, project filtering, ticker

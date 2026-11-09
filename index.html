@@ -22,38 +22,26 @@
   <style>
     :root {
       --paper: #FFFFFF;
-      --ink: #1C2541;
-      --pencil: #5A6177;
-      --rule: #E2E6EE;
-      --margin-line: #EBA7A2;
+      --beige: #E4D7B8;
+      --beige-soft: #F2EBDA;
+      --ink: #000000;
+      --pencil: #4A463C;
+      --rule: #E4D7B8;
+      --margin-line: #C9B278;
       --red-pen: #C2362B;
-      --highlighter: #FFE766;
-      --photo-edge: #FFFFFF;
-      --link-line: rgba(28, 37, 65, .3);
+      --highlighter: #EADBAA;
+      --photo-edge: #F2EBDA;
+      --link-line: rgba(0, 0, 0, .32);
 
       --serif: "Sentient", "Iowan Old Style", "Charter", "Georgia", serif;
       --hand: "Kalam", "Bradley Hand", "Segoe Print", cursive;
 
-      --m: 9rem;      /* margin column */
+      --m: 10.75rem;  /* margin column */
       --c: 38rem;     /* text column */
       --n: 13rem;     /* notes gutter */
       --gap: 2.5rem;
       --pad: 1.5rem;
       color-scheme: light;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --paper: #11151F;
-        --ink: #E4E7EE;
-        --pencil: #9EA6B7;
-        --rule: #262C3A;
-        --margin-line: #6B3533;
-        --red-pen: #FF7A6A;
-        --highlighter: #6B5A12;
-        --photo-edge: #E4E7EE;
-        --link-line: rgba(228, 231, 238, .3);
-        color-scheme: dark;
-      }
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -126,16 +114,16 @@
     /* ── Hero ── */
     .hero { padding-top: 5rem; }
     .photo {
-      width: 100%; max-width: 8.5rem; margin-left: auto;
+      width: 100%; max-width: 10.75rem; margin-left: auto;
       background: var(--photo-edge);
-      padding: 5px 5px 18px;
+      padding: 6px 6px 22px;
       transform: rotate(-2.5deg);
-      box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 8px 18px -10px rgba(28,37,65,.45);
+      box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 8px 18px -10px rgba(0,0,0,.35);
     }
-    .photo img, .photo .initials { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
+    .photo img, .photo .initials { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center center; }
     .photo .initials {
       display: none; align-items: center; justify-content: center;
-      background: #DCE1EA; color: #1C2541; font-size: 2rem; font-weight: 500;
+      background: var(--beige-soft); color: #000; font-size: 2.6rem; font-weight: 500;
     }
     h1 {
       font-size: clamp(2.5rem, 4.6vw, 3.5rem);
@@ -233,7 +221,7 @@
       .row > .m { text-align: left; }
       .top .c { flex-direction: column; }
       .hero { padding-top: 2.8rem; }
-      .photo { margin: 0 0 1.8rem .3rem; max-width: 7rem; }
+      .photo { margin: 0 0 1.8rem .3rem; max-width: 8.5rem; }
       .entry .m { padding-top: 0; margin-bottom: .4rem; display: flex; flex-wrap: wrap; gap: 0 .6rem; }
       .entry .m p + p { margin-top: 0; }
       .sec { margin-top: 5rem; }
@@ -275,13 +263,9 @@
     <section class="row hero" aria-labelledby="hello">
       <div class="m">
         <figure class="photo">
-          <div class="photo-frame">
-            <img src="1767716580137.jpg" alt="Aaditi Singhal"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          
-         
+          <img src="1767716580137.jpg" alt="Aaditi Singhal" width="600" height="600"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="initials" aria-hidden="true">AS</div>
-          </div>
         </figure>
       </div>
       <div class="c">

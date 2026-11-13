@@ -485,7 +485,7 @@
           <p>We asked a vision-language model which side of a mammogram had a mass. It said left, correctly, with 94% confidence. Then we covered the mass with a gray box and asked again. It said right, with 71% confidence. Imaced sits after the model and decides, question by question, whether to pass the answer along or send it to a person, and says why.</p>
           <p>It reads the model’s own answer probabilities across reordered options, a version of the question with no image, and an added “cannot be determined” choice, then combines them with a small logistic regression. On held-out questions it sent 30% of the should-defer cases to review, against 20% for confidence alone, and the answers it let through were right 90% of the time. On scans swapped to the wrong part of the body, where the model had no business answering at all, it caught 50% against 13% for confidence alone.</p>
           <p class="made">Made with Python, Qwen2.5-VL-7B and the ViTAR-16K dataset.</p>
-          <p class="go"><a href="https://imaced.vercel.app">Live demo</a> <a href="https://github.com/aaditisinghal/mercor-hacks">Code</a></p>
+          <p class="go"><a href="https://imaced.vercel.app">Live demo</a> <a href="https://github.com/aaditisinghal/mercor-hacks">Code</a> <a href="https://hackerhousecampus.com/hackathons/mercor-hack-day/projects/imaced">project</a></p>
         </div>
       </article>
 

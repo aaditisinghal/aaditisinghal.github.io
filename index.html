@@ -274,7 +274,7 @@
       </div>
       <div class="c">
         <h1 id="hello">Hi, I’m Aaditi.</h1>
-        <p>I study computer science at Georgia State and I’m a <span id="mark-founder">two-time founder</span>. ProfitWise matched bank deposits to the invoices they paid for US small businesses, and Reakon helped Indian businesses stop losing tax credits they’d already paid for. Most of what I build comes down to matching two messy records and <span id="mark-why">explaining why they match</span>.</p>
+        <p>I study computer science at Georgia State and I’m a <span id="mark-founder">two-time founder</span>. ProfitWise matched bank deposits to the invoices they paid for US small businesses, and Reakon helped Indian businesses stop losing tax credits they’d already paid for. Most of what I build is about getting AI out of the demo and into a real workflow: wiring up messy data, deciding where the model stops and code takes over, and <span id="mark-why">measuring whether it actually works</span>.</p>
         <div class="noted">
           <p>I also do privacy research on AI systems, and I spend a lot of weekends at hackathons. <span class="nowrap" id="mark-wins">Some of them went well.</span></p>
           <p class="note point">fifteen wins so far</p>
@@ -355,11 +355,11 @@
         <div class="m">
           <p>2026</p>
           <p class="where">Cal Hacks 13.0</p>
-          <p class="where">solo</p>
+          <p class="where">solo, 3,000+ hackers</p>
         </div>
         <div class="c">
           <h3>Quota</h3>
-          <p class="award">Winner, Elastic track</p>
+          <p class="award">Winner, Elastic track and Fetch.ai Grand Challenge</p>
           <p>A commissions desk run by agents. It works out what each sales rep has earned, catches mistakes in the sales records, and backs every payout with evidence when a rep disputes it. I built it around one rule: models read the words, code decides the dollars. Every payout needs a person’s sign-off and lands in an append-only, hash-chained ledger that refuses any write that breaks an invariant.</p>
           <div class="noted">
             <p>On a held-out test with 40 planted errors of 16 kinds, it caught all 40, with zero false flags and zero wrong payouts. Elastic semantic search found 10 of 12 off-contract promises hidden in emails, against 5 of 12 for keyword search.</p>
@@ -374,11 +374,15 @@
         <div class="m">
           <p>2026</p>
           <p class="where">MHacks</p>
+          <p class="where">team of two</p>
         </div>
         <div class="c">
           <h3>Homie</h3>
-          <p class="award">1st place, Fetch.ai Agent Challenge, and Best Use of Notability</p>
-          <p>Renting in the US assumes you’re already here. Leasing offices close before students abroad wake up, they won’t call international numbers back, and without an SSN you’re rejected automatically. Homie is eleven agents on Fetch.ai that take one text and do the rest: read listing sites, call leasing offices in parallel with an ElevenLabs voice, play the offers against each other, and start the application in a live browser. In a live run it held the best deal 156 seconds after the first message.</p>
+          <p class="award">1st place, Fetch.ai ASI:One Agent Challenge; 1st place, Best Use of Notability; verbal mention from Relay</p>
+          <div class="noted">
+            <p>Renting in the US assumes you’re already here. Leasing offices close before students abroad wake up, they won’t call international numbers back, and without an SSN you’re rejected automatically. Homie is eleven agents on Fetch.ai that take one text and do the rest: read listing sites, call leasing offices in parallel with an ElevenLabs voice, play the offers against each other, and start the application in a live browser. In a live run it held the best deal 156 seconds after the first message.</p>
+            <p class="note">scrapped two ideas, locked this one in at 1 a.m., shipped it in 11 hours</p>
+          </div>
           <p>I rebuilt the agent messaging as a request-ID RPC layer so 10 calls and 6 site crawls could run at once without collisions, and turned the voice path into a zero-transcoding μ-law bridge from Twilio to ElevenLabs, which brought call response time down to about a second. The agents say they’re AI on every call and never submit a real application without you.</p>
           <p class="made">Made with Python, Fetch.ai uAgents, Twilio and ElevenLabs.</p>
           <p class="go"><a href="https://github.com/aaditisinghal/Homie-Mhacks">Code</a> <a href="https://devpost.com/software/homie-1d28pr">Devpost</a> <a href="https://youtu.be/zl_fpA4hX9Q">Demo video</a></p>
@@ -389,12 +393,17 @@
         <div class="m">
           <p>2026</p>
           <p class="where">HackHERS</p>
+          <p class="where">team of four</p>
         </div>
         <div class="c">
           <h3>PreggoPillow</h3>
           <p class="award">1st place overall, and MLH Best Use of Presage</p>
-          <p>A smart pregnancy pillow and a phone web app. The pillow streams readings overnight, and the app learns your baby’s own movement pattern and tells you the night it changes. It never says a baby is fine, it isn’t a medical device, and emergency or reduced-movement messages never go to the language model. They get fixed scripts instead.</p>
-          <p>A Go service takes in the readings and runs the baseline and anomaly detection on TimescaleDB, with a Next.js app on top. Doctor’s documents sit in an encrypted vault, and you can call an AI assistant by voice.</p>
+          <p>A smart pregnancy pillow and a phone web app. Reduced movement is often the only warning before a stillbirth, and most mothers have no way to show it happened. The pillow streams readings overnight, three accelerometers tell a kick apart from you rolling over, and the app learns your baby’s own movement pattern over two weeks and tells you the night it changes. If movement drops two nights in a row, it calls your emergency contact and prints a one-page report for your midwife.</p>
+          <div class="noted">
+            <p>It never says a baby is fine, because false reassurance is a big reason people wait too long to get checked. It isn’t a medical device, and emergency or reduced-movement messages never go to the language model. They get fixed scripts instead. On 30 real kicks, it caught 29.</p>
+            <p class="note">the backup kick sensor is a bottle cap we turned into a stethoscope. it works</p>
+          </div>
+          <p>A Go service takes in the readings and runs the baseline and anomaly detection on TimescaleDB, with a Next.js app on top. Doctor’s documents sit in an encrypted vault, and you can call an AI assistant by voice. I built the backend and frontend.</p>
           <p class="made">Made with Go, Next.js, TypeScript, Tiger Data (TimescaleDB), Gemini and ElevenLabs.</p>
           <p class="go"><a href="https://github.com/aaditisinghal/Preggo-Pillow">Code</a> <a href="https://devpost.com/software/xyz-g9satd">Devpost</a></p>
         </div>
@@ -403,13 +412,14 @@
       <article class="row entry">
         <div class="m">
           <p>2026</p>
-          <p class="where">YC hackathon</p>
+          <p class="where">Y Combinator</p>
+          <p class="where">solo, 24 hours</p>
         </div>
         <div class="c">
           <h3>Unicess</h3>
-          <p class="award">3rd place, Primitive track</p>
+          <p class="award">3rd place, Primitive track, at YC’s Make Something Agents Want hackathon</p>
           <p>A student who emails three university offices gets three partial replies, weeks apart. Unicess gives each office an email agent with its own address. A student writes once, every office the question touches answers in parallel, and the student gets one complete, signed reply. The median time to first reply in a live run was 6.1 seconds. If the sender is the student’s own AI assistant, it gets back a JSON block it can act on.</p>
-          <p>Anything the agents can’t answer goes to a staff review queue, and the answer is learned for next time.</p>
+          <p>Anything the agents can’t answer goes to a staff review queue, and the answer is learned for next time. Fee waivers and other sensitive decisions still need a person, and no agent can promise admission, money or a visa.</p>
           <p class="made">Made with TypeScript, Node and Primitive. 42 unit tests.</p>
           <p class="go"><a href="https://github.com/aaditisinghal/Unicess">Code</a></p>
         </div>
@@ -417,11 +427,13 @@
 
       <article class="row entry">
         <div class="m">
-          <p>2026</p>
+          <p>2025 – 2026</p>
+          <p class="where">AI ATL</p>
         </div>
         <div class="c">
           <h3>Mapi</h3>
-          <p>Memory for AI agents that knows when a fact has gone stale. If a team moved from Jenkins to CircleCI to GitHub Actions, most memory APIs return all three. Mapi stores memories as a graph with “supersedes” and “contradicts” edges, hides anything a newer result replaces, and can tell you what it believed on a given date.</p>
+          <p class="award">Winner, Google Cloud track</p>
+          <p>Memory for AI agents that knows when a fact has gone stale. If a team moved from Jenkins to CircleCI to GitHub Actions, most memory APIs return all three. Mapi stores memories as a graph with “supersedes” and “contradicts” edges, hides anything a newer result replaces, and can tell you what it believed on a given date. It started at AI ATL in 2025.</p>
           <p>Retrieval fuses vector and keyword search by rank, then reranks and drops near-duplicates. It scores 82.4% on LongMemEval’s 500 questions with an independent judge.</p>
           <p class="made">Made with Python. 1,320 tests, strict typing.</p>
           <p class="go"><a href="https://github.com/aaditisinghal/memory-api">Code</a> <a href="https://devpost.com/software/mapi-7pxne2">Devpost</a></p>
@@ -464,13 +476,14 @@
       <article class="row entry">
         <div class="m">
           <p>2026</p>
-          <p class="where">Mercor hackathon</p>
+          <p class="where">Mercor Hack Day</p>
+          <p class="where">Georgia Tech, team of three</p>
         </div>
         <div class="c">
           <h3>Imaced</h3>
           <p class="award">3rd place (and a team dinner)</p>
           <p>We asked a vision-language model which side of a mammogram had a mass. It said left, correctly, with 94% confidence. Then we covered the mass with a gray box and asked again. It said right, with 71% confidence. Imaced sits after the model and decides, question by question, whether to pass the answer along or send it to a person, and says why.</p>
-          <p>It reads the model’s own answer probabilities across reordered options, a version of the question with no image, and an added “cannot be determined” choice, then combines them with a small logistic regression. On held-out questions it sent 30% of the should-defer cases to review, against 20% for confidence alone, and the answers it let through were right 90% of the time.</p>
+          <p>It reads the model’s own answer probabilities across reordered options, a version of the question with no image, and an added “cannot be determined” choice, then combines them with a small logistic regression. On held-out questions it sent 30% of the should-defer cases to review, against 20% for confidence alone, and the answers it let through were right 90% of the time. On scans swapped to the wrong part of the body, where the model had no business answering at all, it caught 50% against 13% for confidence alone.</p>
           <p class="made">Made with Python, Qwen2.5-VL-7B and the ViTAR-16K dataset.</p>
           <p class="go"><a href="https://imaced.vercel.app">Live demo</a> <a href="https://github.com/aaditisinghal/mercor-hacks">Code</a></p>
         </div>
@@ -484,13 +497,13 @@
             <li><strong>Scholafinder</strong> <span class="yr">2026</span>. An iMessage agent that finds US universities that fund international students, warns about need-aware schools before they cost you admission odds, and calls and emails admissions for you. <a href="https://scholafinder.vercel.app">Live</a>, <a href="https://devpost.com/software/scholafinder">Devpost</a>, <a href="https://github.com/aaditisinghal/scholafinder">Code</a></li>
             <li><strong>Orbit</strong> <span class="yr">SproutGT 2026, winner</span>. A full-stack AI on-call engineer you reach with one message. <a href="https://devpost.com/software/draft-qecny0">Devpost</a></li>
             <li><strong>Vouch</strong> <span class="yr">2026</span>. AI agents are starting to spend money, and everyone hands them a raw, reusable card number. Vouch replaces it. <a href="https://devpost.com/software/vouch-cetn8q">Devpost</a></li>
-            <li><strong>Beeline</strong> <span class="yr">in progress</span>. A job-application agent that never invents experience: describe yourself once, it finds and ranks roles and drafts applications, and nothing goes out without your approval. <a href="https://github.com/aaditisinghal/Job-application-portal">Code</a></li>
-            <li><strong>MetabolX</strong> <span class="yr">HackPrinceton 2025</span>. Metabolite analysis for predictive healthcare, 91.2% accuracy on 20K+ clinical samples. <a href="https://devpost.com/software/metabolx">Devpost</a></li>
+            <li><strong>SafePay</strong> <span class="yr">KSU FinTech 2025, winner and Most Loved Product</span>. Fraud checks that run before money moves. It learns what normal looks like for each user, links users, devices, IPs and merchants in one graph, asks for extra verification only when the risk is real, and gives a reason with every decision. $3,000 prize, voted favorite of 60 projects.</li>
+            <li><strong>MetabolX</strong> <span class="yr">HackPrinceton 2025, Healthcare track winner</span>. Metabolite analysis for predictive healthcare, 91.2% accuracy on 20K+ clinical samples. <a href="https://devpost.com/software/metabolx">Devpost</a></li>
+            <li><strong>NutriGirl AI</strong> <span class="yr">HackHers GSU 2025, 2nd overall and Health track winner</span>. A companion for women managing PCOS: blood-report analysis, food photos rated for PCOS, and exercise form checks with MediaPipe. <a href="https://devpost.com/software/nutrigirl-ai">Devpost</a></li>
             <li><strong>NutriLens AR</strong> <span class="yr">ImmerseGT 2025, verbal mention</span>. Nutrition tracking on Snap Spectacles with under 200 ms latency. <a href="https://devpost.com/software/nutrilens-ar">Devpost</a></li>
-            <li><strong>NutriGirl AI</strong> <span class="yr">2025</span>. A companion for women managing PCOS: blood-report analysis, food photos rated for PCOS, and exercise form checks with MediaPipe. <a href="https://devpost.com/software/nutrigirl-ai">Devpost</a></li>
+            <li><strong>UrbanBuzz AI</strong> <span class="yr">Emory Hacks 2025</span>. Voice-controlled navigation that gives directions by landmarks from street imagery, so you hear “turn left at the blue glass building” instead of a street name. <a href="https://devpost.com/software/urbanbuzz-ai">Devpost</a></li>
             <li><strong>AAROLIC</strong> <span class="yr">Hacklytics 2025</span>. An iOS app connecting patients, providers and doctors, with AI summaries before each visit. <a href="https://devpost.com/software/aa-x395vj">Devpost</a></li>
             <li><strong>LovedOnes</strong> <span class="yr">2025</span>. A memory aid for families caring for someone with Alzheimer’s. <a href="https://devpost.com/software/docez-ai">Devpost</a></li>
-            <li><strong>UrbanBuzz AI</strong> <span class="yr">2025</span>. Voice-controlled navigation that gives directions by landmarks from street imagery. <a href="https://devpost.com/software/urbanbuzz-ai">Devpost</a></li>
             <li><strong>Coco AI</strong> <span class="yr">2025</span>. A multimodal AI agent and content studio for kids. <a href="https://devpost.com/software/intent-r84i3t">Devpost</a></li>
           </ul>
         </div>
@@ -503,20 +516,9 @@
         <div class="m"></div>
         <div class="c">
           <h2 id="research-h">Research</h2>
-          <p class="lede">I’m interested in what AI systems remember that they shouldn’t, and how to make them forget it. I’ve published three papers so far and won 1st place at Georgia State’s MARCUS Research Conference.</p>
+          <p class="lede">I’m interested in what AI systems remember that they shouldn’t, and how to make them forget it. I’ve published three papers so far and won 1st place at MARCUS, the Mid-Atlantic Regional Conference for Undergraduate Scholarship at Randolph College.</p>
         </div>
       </div>
-
-      <article class="row entry">
-        <div class="m">
-          <p>Dec 2024 – now</p>
-          <p class="where">research lead</p>
-        </div>
-        <div class="c">
-          <h3>Machine unlearning</h3>
-          <p>How do you honor a “right to erasure” request when the data is already baked into a model’s weights? I lead a project designing selective-forgetting methods (influence functions, parameter isolation and Fisher-based approaches) and benchmarking them on healthcare and finance data. The best so far forget the requested data with at most a 3% drop in accuracy. We’re also building reproducible measures of how well a model has actually forgotten, toward a journal paper.</p>
-        </div>
-      </article>
     </section>
 
     <!-- ── Wins ── -->
@@ -525,26 +527,27 @@
         <div class="m"></div>
         <div class="c">
           <h2 id="wins-h">Wins and judging</h2>
-          <p class="lede">Fifteen hackathon wins so far. I’ve also judged HackDuke, Hacklytics and HackUGA.</p>
+          <p class="lede">Fifteen hackathon wins so far. I’ve also judged HackDuke, Hacklytics and HackUGA, and I was one of 100 builders picked for DevHouse SF in December 2025.</p>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr><th scope="col">Year</th><th scope="col">Event</th><th scope="col">Result</th><th scope="col">Project</th></tr>
               </thead>
               <tbody>
-                <tr><td>2026</td><td>MHacks</td><td>1st place, Fetch.ai Agent Challenge; Best Use of Notability</td><td>Homie</td></tr>
+                <tr><td>2026</td><td>Mercor Hack Day, Georgia Tech</td><td>3rd place</td><td>Imaced</td></tr>
+                <tr><td>2026</td><td>Cal Hacks 13.0</td><td>Winner, Elastic track; winner, Fetch.ai Grand Challenge (solo)</td><td>Quota</td></tr>
+                <tr><td>2026</td><td>YC Make Something Agents Want</td><td>3rd place, Primitive track (solo)</td><td>Unicess</td></tr>
+                <tr><td>2026</td><td>MHacks</td><td>1st place, Fetch.ai ASI:One Agent Challenge; 1st place, Best Use of Notability</td><td>Homie</td></tr>
                 <tr><td>2026</td><td>HackHERS</td><td>1st place overall; MLH Best Use of Presage</td><td>PreggoPillow</td></tr>
-                <tr><td>2026</td><td>Cal Hacks 13.0</td><td>Winner, Elastic track</td><td>Quota</td></tr>
-                <tr><td>2026</td><td>YC hackathon</td><td>3rd place, Primitive track</td><td>Unicess</td></tr>
-                <tr><td>2026</td><td>Mercor hackathon</td><td>3rd place</td><td>Imaced</td></tr>
                 <tr><td>2026</td><td>SproutGT</td><td>Winner</td><td>Orbit</td></tr>
-                <tr><td>2025</td><td>HackMIT</td><td>1st place, Infosys Diamond track</td><td>EcoAI</td></tr>
+                <tr><td>2025</td><td>AI ATL</td><td>Winner, Google Cloud track</td><td>Mapi</td></tr>
+                <tr><td>2025</td><td>KSU FinTech</td><td>Winner ($3,000); Most Loved Product of 60</td><td>SafePay</td></tr>
+                <tr><td>2025</td><td>HackPrinceton</td><td>Winner, Healthcare track</td><td>MetabolX</td></tr>
                 <tr><td>2025</td><td>HackHarvard</td><td>Most Loved Project</td><td>HivePath AI</td></tr>
-                <tr><td>2025</td><td>AI ATL</td><td>Winner, Google Cloud track</td><td></td></tr>
-                <tr><td>2025</td><td>KSU FinTech</td><td>Winner</td><td></td></tr>
-                <tr><td>2025</td><td>HackHers GSU</td><td>Winner, Health track</td><td></td></tr>
+                <tr><td>2025</td><td>HackMIT</td><td>1st place, Infosys Diamond track</td><td>EcoAI</td></tr>
+                <tr><td>2025</td><td>HackHers GSU</td><td>2nd overall; winner, Health track</td><td>NutriGirl AI</td></tr>
                 <tr><td>2025</td><td>ImmerseGT</td><td>Verbal mention</td><td>NutriLens AR</td></tr>
-                <tr><td></td><td>MARCUS Research Conference</td><td>1st place, undergraduate research</td><td></td></tr>
+                <tr><td></td><td>MARCUS, Randolph College</td><td>1st place, undergraduate research</td><td></td></tr>
               </tbody>
             </table>
           </div>
@@ -583,7 +586,7 @@
       <article class="row entry">
         <div class="m"><p>Off the clock</p></div>
         <div class="c">
-          <p>District chess champion, 25 Olympiad gold medals, a lot of golf, and research rabbit holes that start around 1 a.m.</p>
+          <p>District chess champion, 25 Olympiad gold medals, and a lot of golf.</p>
         </div>
       </article>
 
